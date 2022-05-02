@@ -1,0 +1,1 @@
+export const CURRENT_USER_ID = Principal.fromText("2vxsx-fae");

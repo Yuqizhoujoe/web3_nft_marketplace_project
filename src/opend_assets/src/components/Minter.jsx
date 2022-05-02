@@ -6,17 +6,15 @@ import { opend } from "../../../declarations/opend";
 
 function Minter() {
   const { register, handleSubmit } = useForm();
-  const [nftPrincipal, setNftPrincipal] = useState("");
+const [nftPrincipal, setNftPrincipal] = useState("");
 
   async function onSubmit(formData) {
-    console.log(formData);
     const {name, image} = formData;
     const imageData = image[0];
     const imageBufferArray = await imageData.arrayBuffer();
     const imageByteData = [...new Uint8Array(imageBufferArray)];
     
     const newNFTID = await opend.mint(imageByteData, name);
-    console.log(newNFTID.toText());
     setNftPrincipal(newNFTID);
   }
 

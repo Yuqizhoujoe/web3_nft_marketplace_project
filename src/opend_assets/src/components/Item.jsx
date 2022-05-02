@@ -11,7 +11,7 @@ function Item({NFTID}) {
 
   useEffect(() => {
     getNft("images/png", NFTID);
-  }, [NFTID]);
+}, [NFTID]);
 
   return (
     <div className="disGrid-item">
