@@ -22,4 +22,8 @@ actor class NFT(name: Text, owner: Principal, content: [Nat8]) = this {
     public query func getCanisterId(): async Principal {
         return Principal.fromActor(this);
     };
+
+    public shared(msg) func transferOwnership(newOwner: Principal): async Text {
+        
+    }
 }

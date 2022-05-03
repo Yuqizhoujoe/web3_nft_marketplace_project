@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { textSpanContainsPosition } from "../../../../node_modules/typescript/lib/typescript";
+import { opend } from "../../../declarations/opend";
 import useNft from "../hooks/useNft";
 import Button from "./Button";
 
@@ -17,9 +17,12 @@ function Item({ NFTID }) {
     setSelling(true);
   };
 
-  const confirmSellNFTButtonHandler = () => {
-    setSelling(false);
-    console.log(price);
+  const confirmSellNFTButtonHandler = async () => {
+    const listRes = await opend.listItem(NFTID, Number(price));
+    console.log(listRes);
+    if (listRes === "Success") {
+      setSelling(false);
+    }
   }
 
   const priceInputChangeHandler = (e) => {
